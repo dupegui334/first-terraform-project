@@ -2,11 +2,9 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_instance" "name" {
-    ami = "ami-05fa00d4c63e32376"
-    instance_type = "t2.micro"
-    tags = {
-      "env" = "dev"
-    }
+resource "aws_instance" "cron-server" {
+    ami = var.ami_id
+    instance_type = var.instance_type
+    tags = var.tags
   
 }
