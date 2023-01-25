@@ -19,4 +19,5 @@ ingress_rules=[
         cidr_blocks = ["0.0.0.0/0"]
     }
 ]
-
+bucket_name = "tfstate-s3-sdupegui-proj1"
+acl = "private"

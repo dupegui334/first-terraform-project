@@ -10,7 +10,7 @@ resource "aws_instance" "cron-server" {
 }
 
 resource "aws_security_group" "sg_ec2" {
-  name        = "var.sg_name"
+  name        = var.sg_name
   dynamic "ingress" { #Iterative for to create multiple ingress rules
     for_each = var.ingress_rules
     content {
@@ -20,4 +20,10 @@ resource "aws_security_group" "sg_ec2" {
         cidr_blocks      = ingress.value.cidr_blocks
     }
   }
+}
+
+resource "aws_s3_bucket" "tf-backend-cron-server" {
+    bucket = var.bucket_name
+    acl = var.acl
+    tags = var.tags
 }
