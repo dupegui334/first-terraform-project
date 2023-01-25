@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "us-east-1"
+}
+
 module "app-sdupegui" {
   source = "./modules/instance"
   ami_id = var.ami_id
